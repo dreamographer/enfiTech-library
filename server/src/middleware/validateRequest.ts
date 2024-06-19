@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { RequestHandler } from "express";
-
+//Middle Ware function for chekcing input validation using Zod
 export const validateRequest =
   (schema: z.ZodSchema<any>): RequestHandler =>
   (req, res, next) => {

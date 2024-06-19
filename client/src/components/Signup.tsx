@@ -3,7 +3,7 @@ import { Input } from "./ui/Input";
 import axios from "axios";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-const BASE_URL = import.meta.env.VITE_BASE_URL; //url of the 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface FormData {
   username: string;
@@ -19,7 +19,7 @@ interface FormErrors {
   confirmPassword: string;
 }
 type Props = {
-  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setLogin: ()=>void;
 };
 
 const Signup = ({setLogin}:Props) => {
@@ -118,7 +118,7 @@ const Signup = ({setLogin}:Props) => {
         console.log("Registration successful", response.status);
         toast.success("Registration successful");
         if(response.status==201){
-          setLogin(true)
+          setLogin()
           navigate('/')
         }
         setFormData({

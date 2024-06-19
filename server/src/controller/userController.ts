@@ -1,6 +1,7 @@
-import { NextFunction, Request, Response } from "express";
+import {Request, Response } from "express";
 import bcrypt from "bcrypt";
 import { User } from "../database/models/userModel";
+// user Controller
 export const userController = {
   register: async (req: Request, res: Response) => {
     try {

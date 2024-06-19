@@ -1,5 +1,5 @@
 import { z } from "zod";
-
+//sceme for user VAlidation
 export const userSchema = z.object({
   username: z.string().min(5, "Full name must have at least 5 characters"),
   email: z.string().email("Invalid email address"),

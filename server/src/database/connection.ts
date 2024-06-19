@@ -3,7 +3,7 @@ const url = process.env.MONGO_URL; //Db url
 if (!url) {
   throw new Error("Environment variable MONGO_URL is not set");
 }
-
+// function to connect to DB
 export const connectToDatabase = async (): Promise<void> => {
   try {
     await mongoose.connect(url);
