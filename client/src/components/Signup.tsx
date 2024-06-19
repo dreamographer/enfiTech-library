@@ -2,6 +2,7 @@ import { useState, ChangeEvent, FormEvent, useEffect, useRef } from "react";
 import { Input } from "./ui/Input";
 import axios from "axios";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 const BASE_URL = import.meta.env.VITE_BASE_URL; //url of the 
 
 interface FormData {
@@ -17,9 +18,13 @@ interface FormErrors {
   password: string;
   confirmPassword: string;
 }
+type Props = {
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-const Signup = () => {
+const Signup = ({setLogin}:Props) => {
 
+  const navigate=useNavigate()
   //state for storing the formData
   const [formData, setFormData] = useState<FormData>({
     username: "",
@@ -113,7 +118,8 @@ const Signup = () => {
         console.log("Registration successful", response.status);
         toast.success("Registration successful");
         if(response.status==201){
-          
+          setLogin(true)
+          navigate('/')
         }
         setFormData({
           username: "",
