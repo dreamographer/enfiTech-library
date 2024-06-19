@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import { useState } from "react";
-import Protected from "./components/ProtectRoute";
+import Protected from "./components/protectRoute";
 function App() {
   const [login,setLogin]=useState(true) //Dummy login status can be update with actual authentication
   return (
